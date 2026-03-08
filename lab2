@@ -1,0 +1,60 @@
+#include <stdio.h>
+int largest(int, int, int);
+int smallest(int, int, int);
+float average(int, int, int);
+
+int main()
+{
+    int m1, m2, m3;
+    int large, small, V;
+    float avg;
+
+    printf("Enter marks of three subjects: ");
+    scanf("%d %d %d", &m1, &m2, &m3);
+
+    large = largest(m1, m2, m3);
+    small = smallest(m1, m2, m3);
+    avg = average(m1, m2, m3);
+
+    V = (avg >= 50) ? 1 : 0;   
+
+    printf("Largest mark = %d\n", large);
+    printf("Smallest mark = %d\n", small);
+    printf("Average = %.2f\n", avg);
+    printf("Value of V = %d\n", V);
+
+    return 0;
+}
+
+int largest(int a, int b, int c)
+{
+    if(a > b)
+    {
+        if(a > c)
+            return a;
+        else
+            return c;
+    }
+    else
+    {
+        if(b > c)
+            return b;
+        else
+            return c;
+    }
+}
+
+int smallest(int a, int b, int c)
+{
+    if(a < b && a < c)
+        return a;
+    else if(b < a && b < c)
+        return b;
+    else
+        return c;
+}
+
+float average(int a, int b, int c)
+{
+    return (a + b + c) / 3.0;
+}
